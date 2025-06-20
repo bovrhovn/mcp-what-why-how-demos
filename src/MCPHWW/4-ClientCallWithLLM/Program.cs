@@ -20,7 +20,17 @@ var clientTransport = new StdioClientTransport(new StdioClientTransportOptions
 
 await using var mcpClient = await McpClientFactory.CreateAsync(clientTransport);
 
+var tools = await GetMcpTools(mcpClient);
+for (var currentIndex = 0; currentIndex < tools.Count; currentIndex++)
+{
+    var tool = tools[currentIndex];
+    var toolOutputFormat = $"{currentIndex}: {tool}";
+    AnsiConsole.Write(new Markup("[blue]MCP Tools def:[/] " + toolOutputFormat));
+    AnsiConsole.WriteLine();
+}
 
+var projectEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? string.Empty;
+ArgumentException.ThrowIfNullOrEmpty(projectEndpoint);
 var defaultAzureCredential = new DefaultAzureCredential(new DefaultAzureCredentialOptions
 {
     ExcludeAzureCliCredential = false,
@@ -29,8 +39,6 @@ var defaultAzureCredential = new DefaultAzureCredential(new DefaultAzureCredenti
     ExcludeVisualStudioCodeCredential = true,
     ExcludeVisualStudioCredential = true
 });
-var projectEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? string.Empty;
-ArgumentException.ThrowIfNullOrEmpty(projectEndpoint);
 
 var deploymentName = Environment.GetEnvironmentVariable("DEPLOYMENTNAME") ?? "gpt-4o";
 var modelName = Environment.GetEnvironmentVariable("MODELNAME") ?? "gpt-4o";
@@ -53,15 +61,6 @@ var llmClient = new ChatCompletionsClient(
     clientOptions
 );
 
-var tools = await GetMcpTools();
-for (var currentIndex = 0; currentIndex < tools.Count; currentIndex++)
-{
-    var tool = tools[currentIndex];
-    var toolOutputFormat = $"{currentIndex}: {tool}";
-    AnsiConsole.Write(new Markup("[blue]MCP Tools def:[/] " + toolOutputFormat));
-    AnsiConsole.WriteLine();
-}
-
 // 2. Define the chat history and the user message
 var question = AnsiConsole.Prompt(
     new TextPrompt<string>("What's your question?")
@@ -78,7 +77,7 @@ var options = new ChatCompletionsOptions(chatHistory)
 ChatCompletions? response = await llmClient.CompleteAsync(options);
 var content = response.Content;
 //tool information
-var calls = response.ToolCalls.FirstOrDefault();
+//var calls = response.ToolCalls.FirstOrDefault();
 for (int currentCallIndex = 0; currentCallIndex < response.ToolCalls.Count; currentCallIndex++)
 {
     var call = response.ToolCalls[currentCallIndex];
@@ -115,14 +114,14 @@ ChatCompletionsToolDefinition ConvertFrom(string name, string description, JsonE
     return toolDefinition;
 }
 
-async Task<List<ChatCompletionsToolDefinition>> GetMcpTools()
+async Task<List<ChatCompletionsToolDefinition>> GetMcpTools(IMcpClient myMcpClient)
 {
     Console.WriteLine("Listing tools");
-    var tools = await mcpClient.ListToolsAsync();
+    var currentTools = await myMcpClient.ListToolsAsync();
 
     List<ChatCompletionsToolDefinition> toolDefinitions = [];
 
-    foreach (var tool in tools)
+    foreach (var tool in currentTools)
     {
         Console.WriteLine($"Connected to server with tools: {tool.Name}");
         Console.WriteLine($"Tool description: {tool.Description}");
