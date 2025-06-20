@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{44D5FC99-9
 		..\..\README.md = ..\..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2-AgentWithBingTool", "2-AgentWithBingTool\2-AgentWithBingTool.csproj", "{339E968F-F296-4C62-9829-A328FE4A69D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,5 +19,9 @@ Global
 		{A2FB9130-8397-4387-B617-183511B3E96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2FB9130-8397-4387-B617-183511B3E96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2FB9130-8397-4387-B617-183511B3E96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339E968F-F296-4C62-9829-A328FE4A69D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339E968F-F296-4C62-9829-A328FE4A69D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339E968F-F296-4C62-9829-A328FE4A69D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339E968F-F296-4C62-9829-A328FE4A69D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
