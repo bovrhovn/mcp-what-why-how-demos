@@ -46,6 +46,15 @@ Azure environment. Once you have access, you will need to set up the environment
 1. [**1-AzureOpenAPICall**](src/MCPHWW/1-AzureOpenApiCall) - This demo shows how to call an Azure OpenAI model using the
    Model Context Protocol. It demonstrates
    how to set up the environment variables and make a simple call to the model.
+2. [**2-AgentWithBingTool**](src/MCPHWW/2-AgentWithBingTool) - This demo shows how to use the Model Context
+   Protocol to create an agent that can interact with the Bing search tool. It demonstrates how to set up the agent and
+   make a call to the Bing tool using Azure AI Foundry and Bing connections.
+3. [**3-SimpleWeatherServiceMCPServer**](src/MCPHWW/3-SimpleWeatherMCPServer) - This demo shows how to create a simple weather
+   service using the Model Context Protocol. It demonstrates how to set up the service and make a call to the weather
+   service using Azure AI Foundry.
+4. [**4-SimpleWeatherServiceClientCall**](src/MCPHWW/3-SimpleWeatherClientCall) - This demo shows how to call the
+   simple weather service created in the previous demo. It demonstrates how to set up the client and make a call to the
+   weather service using the Model Context Protocol.
 
 ## Getting Started
 
@@ -67,8 +76,11 @@ cd mcp-what-why-how-demos\src\MCPHWW
 
 Set-EnvironmentVariable -Name "AI_FOUNDRY_PROJECT_ENDPOINT" -Value "<your-endpoint-to-the-azure-foundry>" -Scope Process
 Set-EnvironmentVariable -Name "AZURE_OPENAI_ENDPOINT" -Value "<your-endpoint-to-the-deployed-model>" -Scope Process
+## Bing connection id is in the format of /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.CognitiveServices/accounts/<ai_service_name>/projects/<project_name>/connections/<connection_name>
+Set-EnvironmentVariable -Name "BING_CONNECTION_ID" -Value "Bing connection id" -Scope Process
 Set-EnvironmentVariable -Name "DEPLOYMENTNAME" -Value "<your-deploymentname>" -Scope Process
 Set-EnvironmentVariable -Name "APIKEY" -Value "<your-api-key-from-model-deployed>" -Scope Process
+Set-EnvironmentVariable -Name "SIMPLE_WEATHER_SERVER_PATH" -Value "<your csproj file path to simple weather service>" -Scope Process
 
 ```
 
@@ -85,6 +97,7 @@ dotnet run
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/introduction)
 - [MCP for beginners](https://github.com/microsoft/mcp-for-beginners)
 - [MCP C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
+- [Best practices for access token in Microsoft Identity Platform](https://learn.microsoft.com/en-us/azure/active-directory/develop/best-practices-access-tokens)
 
 # Trademarks
 

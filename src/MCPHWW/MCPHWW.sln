@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{44D5FC99-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2-AgentWithBingTool", "2-AgentWithBingTool\2-AgentWithBingTool.csproj", "{339E968F-F296-4C62-9829-A328FE4A69D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3-SimpleWeatherMCPServer", "3-SimpleWeatherMCPServer\3-SimpleWeatherMCPServer.csproj", "{BBC93D3E-9565-4390-90BB-1E47E36C671E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3-SimpleWeatherClientCall", "3-SimpleWeatherClientCall\3-SimpleWeatherClientCall.csproj", "{A6BC078F-867A-4FD0-ACBD-C404D5752FE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +27,13 @@ Global
 		{339E968F-F296-4C62-9829-A328FE4A69D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{339E968F-F296-4C62-9829-A328FE4A69D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{339E968F-F296-4C62-9829-A328FE4A69D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC93D3E-9565-4390-90BB-1E47E36C671E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC93D3E-9565-4390-90BB-1E47E36C671E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC93D3E-9565-4390-90BB-1E47E36C671E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC93D3E-9565-4390-90BB-1E47E36C671E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6BC078F-867A-4FD0-ACBD-C404D5752FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BC078F-867A-4FD0-ACBD-C404D5752FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BC078F-867A-4FD0-ACBD-C404D5752FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BC078F-867A-4FD0-ACBD-C404D5752FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
