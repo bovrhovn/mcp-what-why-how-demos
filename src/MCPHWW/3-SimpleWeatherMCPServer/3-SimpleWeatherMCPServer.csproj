@@ -10,6 +10,8 @@
 
     <ItemGroup>
       <PackageReference Include="McpToolkit" Version="0.1.3" />
+      <PackageReference Include="McpToolkit.Server" Version="0.1.3" />
+      <PackageReference Include="ModelContextProtocol" Version="0.3.0-preview.1" />
       <PackageReference Include="ModelContextProtocol.NET.Server" Version="0.3.2-alpha" />
     </ItemGroup>
 

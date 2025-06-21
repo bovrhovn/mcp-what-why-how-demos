@@ -1,10 +1,13 @@
-﻿using McpToolkit.Server;
+﻿using McpToolkit;
+using McpToolkit.Server;
+using ModelContextProtocol.Client;
 
 var server = new McpServer
 {
     Name = "Simple Weather MCP Server",
     Version = "1.0.0"
 };
+
 server.Tools.Add("simpleWeatherTool", "Gets one line for current weather for a location", async (string location) =>
 {
     // Call weather API or service to get weather data
