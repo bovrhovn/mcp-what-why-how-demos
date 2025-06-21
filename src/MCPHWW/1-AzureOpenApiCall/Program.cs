@@ -3,6 +3,8 @@ using Azure.AI.OpenAI;
 using OpenAI.Chat;
 using Spectre.Console;
 
+#region Environment Variables
+
 AnsiConsole.Write(new Markup("[blue]1 - Calling deployments from Azure OpenAI Service...[/]"));
 AnsiConsole.WriteLine();
 var projectEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? string.Empty;
@@ -15,6 +17,8 @@ AnsiConsole.Write(new Markup("[blue]Project endpoint: [/]" + projectEndpoint));
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[blue]Deployment Name: [/]" + deploymentName));
 AnsiConsole.WriteLine();
+
+#endregion
 
 var client = new AzureOpenAIClient(new Uri(projectEndpoint),
     new AzureKeyCredential(projectKey));

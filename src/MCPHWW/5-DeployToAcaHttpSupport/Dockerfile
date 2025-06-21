@@ -13,14 +13,15 @@ COPY . .
 RUN dotnet publish -c Release -o /app/publish
 
 # Create the runtime image
-FROM mcr.microsoft.com/dotnet/runtime:9.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
-
-# Set the entry point for the container
-ENTRYPOINT ["dotnet", "5-DeployToAcaHttpSupport.dll"]
-
+ENV ASPNETCORE_HTTP_PORTS=80
 # Configure container for MCP stdio communication
 ENV DOTNET_RUNNING_IN_CONTAINER=true
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+# Set the entry point for the container
+ENTRYPOINT ["dotnet", "5-DeployToAcaHttpSupport.dll"]
+
+
 

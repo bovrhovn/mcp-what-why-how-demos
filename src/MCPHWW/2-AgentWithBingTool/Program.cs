@@ -6,6 +6,8 @@ using Spectre.Console;
 AnsiConsole.Write(new Markup("[blue]2 - Calling agent with Bing tool from Azure OpenAI Service...[/]"));
 AnsiConsole.WriteLine();
 
+#region Environment Variables
+
 var projectEndpoint = Environment.GetEnvironmentVariable("AI_FOUNDRY_PROJECT_ENDPOINT");
 ArgumentException.ThrowIfNullOrEmpty(projectEndpoint);
 var bingConnectionId = Environment.GetEnvironmentVariable("BING_CONNECTION_ID");
@@ -18,6 +20,9 @@ AnsiConsole.Write(new Markup("[blue]Deployment Name: [/]" + deploymentName));
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[blue]Bing ID: [/]" + bingConnectionId));
 AnsiConsole.WriteLine();
+
+#endregion
+
 //use CLI credentials to connect to the Azure Foundry project
 var defaultAzureCredential = new DefaultAzureCredential(new DefaultAzureCredentialOptions
 {
@@ -64,8 +69,7 @@ do
 {
     Thread.Sleep(TimeSpan.FromMilliseconds(500));
     run = client.Runs.GetRun(thread.Id, run.Id);
-} while (run.Status == RunStatus.Queued
-         || run.Status == RunStatus.InProgress);
+} while (run.Status == RunStatus.Queued || run.Status == RunStatus.InProgress);
 
 AnsiConsole.Write(new Markup("[blue]Run status[/]: " + run.Status));
 // Confirm that the run completed successfully

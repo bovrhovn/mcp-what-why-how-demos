@@ -15,6 +15,7 @@ var clientTransport = new StdioClientTransport(new StdioClientTransportOptions
 
 var client = await McpClientFactory.CreateAsync(clientTransport);
 var tools = await client.ListToolsAsync();
+
 AnsiConsole.Write(new Markup("[blue]Available tools:[/]"));
 AnsiConsole.WriteLine();
 foreach (var tool in tools)
