@@ -30,10 +30,14 @@ in practice.
 4. an editor (besides notepad) to see and work with code, yaml, scripts and more (for
    example [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/)
    or [Jetbrains Rider](https://jetbrains.com/rider))
-5. [OPTIONAL] GitHub CLI installed to work with GitHub - [how to install](https://cli.github.com/manual/installation)
-6. [OPTIONAL] [Github GUI App](https://desktop.github.com/) for managing changes and work
+5. [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed to work with Azure
+   resources - [how to install](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+6. [Docker](https://www.docker.com/products/docker-desktop/) installed to run the application in a container
+   if you want to run it in a container (or Podman, or any other container runtime)
+7. [OPTIONAL] GitHub CLI installed to work with GitHub - [how to install](https://cli.github.com/manual/installation)
+8. [OPTIONAL] [Github GUI App](https://desktop.github.com/) for managing changes and work
    on [forked](https://docs.github.com/en/get-started/quickstart/fork-a-repo) repo
-7. [OPTIONAL] [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install)
+9. [OPTIONAL] [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install)
 
 To work with the demos in this repository, you will need to have access to an Azure AI Foundry. You can get access
 by applying by following
@@ -55,6 +59,10 @@ Azure environment. Once you have access, you will need to set up the environment
 4. [**4-SimpleWeatherServiceClientCall**](src/MCPHWW/3-SimpleWeatherClientCall) - This demo shows how to call the
    simple weather service created in the previous demo. It demonstrates how to set up the client and make a call to the
    weather service using the Model Context Protocol.
+5. [**5-DeployToAcaHttpSupport**](src/MCPHWW/5-DeployToAcaHttpSupport) - This demo shows how to deploy the simple
+   weather service to Azure Container Apps (ACA) with HTTP support. It demonstrates how to set up the deployment and make
+   a call to the deployed service using the Model Context Protocol.
+
 
 ## Getting Started
 
