@@ -1,6 +1,5 @@
 
 using _5_DeployToAcaHttpSupport.Resources;
-using ModelContextProtocol.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.AddConsole(consoleLogOptions => consoleLogOptions.LogToStandardErrorThreshold = LogLevel.Trace);

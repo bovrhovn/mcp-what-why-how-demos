@@ -1,8 +1,14 @@
-﻿namespace _5_DeployToAcaHttpSupport.Resources;
+﻿using System.ComponentModel;
+using ModelContextProtocol.Server;
 
-public class WeatherHistory
+namespace _5_DeployToAcaHttpSupport.Resources;
+
+[McpServerResourceType]
+public static class WeatherHistory
 {
-    public string GetWeatherHistoryFromFile()
+    [McpServerResource(Name = "WeatherHistory", Title = "Weather History Resource",MimeType = "text/plain")]
+    [Description("Returns a summary of the weather from a file.")]
+    public static string GetWeatherHistoryFromFile()
     {
         // This method is a placeholder for the actual implementation that would retrieve weather history data.
         // In a real application, this could involve querying a database or an file
