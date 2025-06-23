@@ -1,6 +1,4 @@
-﻿using McpToolkit;
-using McpToolkit.Server;
-using ModelContextProtocol.Client;
+﻿using McpToolkit.Server;
 
 var server = new McpServer
 {

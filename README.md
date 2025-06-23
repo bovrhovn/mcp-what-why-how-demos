@@ -62,6 +62,9 @@ Azure environment. Once you have access, you will need to set up the environment
 5. [**5-DeployToAcaHttpSupport**](src/MCPHWW/5-DeployToAcaHttpSupport) - This demo shows how to deploy the simple
    weather service to Azure Container Apps (ACA) with HTTP support. It demonstrates how to set up the deployment and make
    a call to the deployed service using the Model Context Protocol.
+6. [**6-ServerWithAnotherMCP**](src/MCPHWW/6-ServerWithAnotherMCP) - This demo shows how to create a server that can interact with another
+   Model Context Protocol server. It demonstrates how to set up the server and make a call to the other server using the
+   Model Context Protocol.
 
 
 ## Getting Started

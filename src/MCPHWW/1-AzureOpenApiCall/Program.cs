@@ -7,6 +7,7 @@ using Spectre.Console;
 
 AnsiConsole.Write(new Markup("[blue]1 - Calling deployments from Azure OpenAI Service...[/]"));
 AnsiConsole.WriteLine();
+
 var projectEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? string.Empty;
 ArgumentException.ThrowIfNullOrEmpty(projectEndpoint);
 var projectKey = Environment.GetEnvironmentVariable("APIKEY") ?? string.Empty;
@@ -25,7 +26,6 @@ var client = new AzureOpenAIClient(new Uri(projectEndpoint),
 var chatClient = client.GetChatClient(deploymentName);
 var requestOptions = new ChatCompletionOptions
 {
-    MaxOutputTokenCount = 4096,
     Temperature = 1.0f,
     TopP = 1.0f
 };
@@ -40,7 +40,8 @@ var messages = new List<ChatMessage>
 {
     new SystemChatMessage("You are a chat assistant that helps users with their queries. " +
                           "You should provide helpful and accurate responses based on the user's input." +
-                          "If you don't know the answer say 'I don't know, try again'."),
+                          "If you don't know the answer say 'I don't know, try again'. " +
+                          "Tell also date of the training set you used to answer the question."),
     new UserChatMessage(question)
 };
 table.AddRow("User", question);
@@ -55,4 +56,4 @@ if (string.IsNullOrEmpty(assistantMessage))
 table.AddRow("Assistant", assistantMessage);
 AnsiConsole.Write(table);
 AnsiConsole.WriteLine();
-AnsiConsole.Write(new Markup("[ bold green]Chat completed successfully![/]"));
+AnsiConsole.Write(new Markup("[bold green]Chat completed successfully![/]"));

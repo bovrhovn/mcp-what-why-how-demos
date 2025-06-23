@@ -44,10 +44,12 @@ var bingGroundingTool = new BingGroundingToolDefinition(
     new BingGroundingSearchToolParameters([searchConfig])
 );
 
+var instructions = "Use the bing grounding tool to answer questions. " +
+                   "Tell me the time of the data you are using to answer the question.";
 PersistentAgent agentClient = client.Administration.CreateAgent(
     model: deploymentName,
     name: "AgentWithBingTool",
-    instructions: "Use the bing grounding tool to answer questions.",
+    instructions: instructions,
     tools: [bingGroundingTool]
 );
 
@@ -87,7 +89,9 @@ Pageable<PersistentThreadMessage> messages = client.Messages.GetMessages(
 foreach (var threadMessage in messages)
 {
     AnsiConsole.Write(new Markup("[blue]" + threadMessage.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss") +
-                                 "[/] - [blue]Role[/]" + threadMessage.Role));
+                                 "[/] - [blue]Role[/]: "));
+    AnsiConsole.Write(threadMessage.Role.ToString().ToUpperInvariant());
+    AnsiConsole.WriteLine();
     foreach (var contentItem in threadMessage.ContentItems)
     {
         switch (contentItem)
@@ -107,11 +111,11 @@ foreach (var threadMessage in messages)
                     }
                 }
 
-                AnsiConsole.Write(new Markup("[bold red]Agent response[/]: " + response));
+                AnsiConsole.Write(new Markup("[bold red]Agent response: [/]"));
+                AnsiConsole.WriteLine(response);
                 break;
             }
         }
-
         AnsiConsole.WriteLine();
     }
 }
